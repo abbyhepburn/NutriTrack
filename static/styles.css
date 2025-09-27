@@ -102,6 +102,9 @@ form button:hover {
     background-color: #4b8526;
     border: solid 10px #4b8526;
     border-radius: 20px;
+}
+
+li {
     margin-bottom: 30px;
 }
 @media (min-width: 768px) {
