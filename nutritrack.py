@@ -1,5 +1,5 @@
 import math
-weight=[]
+weightstate=[]
 def convert_weight(pounds):
     weight = pounds / 2.205
     return weight
@@ -12,27 +12,27 @@ def convert_height(inches):
 
 def bmi_calculations(weight, height):
     user_bmi = convert_weight(weight) / convert_height(height)
-    weight.append("Reminder: Your BMI is just a rough guideline, not a full picture of your "
+    weightstate.append("Reminder: Your BMI is just a rough guideline, not a full picture of your "
           "health. Things like muscle, bone structure, and lifestyle aren’t included in this number, "
           "so don’t worry if your score isn’t exactly where you hoped. It doesn’t define you.")
 
     if user_bmi < 18.5:
-        weight.append(f"According to your BMI of {round(user_bmi, 1)}, you are currently underweight.")
+        weightstate.append(f"According to your BMI of {round(user_bmi, 1)}, you are currently underweight.")
         status = "underweight"
 
 
     elif 18.5 <= user_bmi <= 24.9:
-        weight.append(f"According to your BMI of {round(user_bmi, 1)}, you are currently within a normal weight.")
+        weightstate.append(f"According to your BMI of {round(user_bmi, 1)}, you are currently within a normal weight.")
         status = "normal"
 
 
     elif 25 <= user_bmi <= 29.9:
-        weight.append(f"According to your BMI of {round(user_bmi, 1)}, you are currently overweight.")
+        weightstate.append(f"According to your BMI of {round(user_bmi, 1)}, you are currently overweight.")
         status = "overweight"
 
 
     elif user_bmi >= 30:
-        weight.append(f"According to your BMI of {round(user_bmi, 1)}, you are currently obese.")
+        weightstate.append(f"According to your BMI of {round(user_bmi, 1)}, you are currently obese.")
         status = "obese"
     return status
 
@@ -66,76 +66,76 @@ def body_fat_calculations(height, sex, waist, neck, hip):
         else:
             bfp_status = "overweight"
 
-    weight.append(f"Your body fat percentage is {bfp}% ({bfp_status}).")
+    weightstate.append(f"Your body fat percentage is {bfp}% ({bfp_status}).")
     return bfp_status
 
 def weight_info(weight, height, sex, waist, neck, hip):
     bfp_status = body_fat_calculations(sex, waist, neck, hip)
     status = bmi_calculations(weight, height)
     if status == "underweight" and bfp_status == "essential":
-        weight.append("You have very low fat and a very low weight, and because of this you"
+        weightstate.append("You have very low fat and a very low weight, and because of this you"
               "may lack energy or muscle. Focus on gaining lean muscle through nutrition"
               "and strength training.")
     elif bfp_status == "essential" and status == "normal":
-        weight.append("You have a very low body fat percentage, but healthy weight. It's likely you're athletic."
+        weightstate.append("You have a very low body fat percentage, but healthy weight. It's likely you're athletic."
               "You should maintain your current routine and ensure proper nutrition to"
               "support your current health!")
     elif bfp_status == "essential" and status == "overweight":
-        weight.append("You have very low fat, but a high BMI. It is likely that you're very muscular."
+        weightstate.append("You have very low fat, but a high BMI. It is likely that you're very muscular."
               "Continue healthy training and monitor your weight trends.")
     elif bfp_status == "essential" and status == "obese":
-        weight.append("You have very low fat, but a high BMI which is very unusual."
+        weightstate.append("You have very low fat, but a high BMI which is very unusual."
               "Recheck your measurements or consult a healthcare professional."
               "Your BMI may not properly reflect your body composition.")
     elif bfp_status == "athletic" and status == "underweight":
-        weight.append("It seems like you are lean and fit, but underweight. Consider building muscle"
+        weightstate.append("It seems like you are lean and fit, but underweight. Consider building muscle"
               " through resistance training and balanced nutrition.")
     elif bfp_status == "athletic" and status == "normal":
-        weight.append("You are lean and fit! You have a healthy weight and BMI. Keep up the exercise"
+        weightstate.append("You are lean and fit! You have a healthy weight and BMI. Keep up the exercise"
               " to maintain health and fitness.")
     elif bfp_status == "athletic" and status == "overweight":
-        weight.append("It is likely that you are muscular because you have lean body fat, but your BMI is high. "
+        weightstate.append("It is likely that you are muscular because you have lean body fat, but your BMI is high. "
               "Your BMI may be overestimating your weight, so continue strength training"
               "and healthy habits.")
     elif bfp_status == "athletic" and status == "obese":
-        weight.append("You have lean fat, but a very high BMI which is rare. It's likely that you're "
+        weightstate.append("You have lean fat, but a very high BMI which is rare. It's likely that you're "
               "muscular, but check your remeasurements and maintain and balanced lifestyle.")
     elif bfp_status == "fit" and status == "underweight":
-        weight.append("You have low-normal fat, but you're also underweight. Focus on healthy weight"
+        weightstate.append("You have low-normal fat, but you're also underweight. Focus on healthy weight"
               "gain with protein and strength exercises.")
     elif bfp_status == "fit" and status == "normal":
-        weight.append("You have a healthy amount of fat and a healthy BMI! Work on maintaining "
+        weightstate.append("You have a healthy amount of fat and a healthy BMI! Work on maintaining "
               "activity and balanced nutrition for long-term health.")
     elif bfp_status == "fit" and status == "overweight":
-        weight.append("You have a high BMI, but healthy amount of body fat. You're possibly muscular,"
+        weightstate.append("You have a high BMI, but healthy amount of body fat. You're possibly muscular,"
               "but be sure to monitor your diet and activity to maintain healthy fat levels.")
     elif bfp_status == "fit" and status == "obese":
-        weight.append("You have a very high BMI, but your body fat percentage is healthy. Review your"
+        weightstate.append("You have a very high BMI, but your body fat percentage is healthy. Review your"
               "lifestyle habits and aim for gradual fat reduction and activity.")
     elif bfp_status == "average" and status == "underweight":
-        weight.append("You have the average amount of body fat, but a low weight. Ensure your proper nutrition and"
+        weightstate.append("You have the average amount of body fat, but a low weight. Ensure your proper nutrition and"
               "muscle building to reach a healthy weight.")
     elif bfp_status == "average" and status == "normal":
-        weight.append("You have average fat, and healthy BMI. Maintain activity and a healthy diet"
+        weightstate.append("You have average fat, and healthy BMI. Maintain activity and a healthy diet"
               "to stay in balance!")
     elif bfp_status == "average" and status == "overweight":
-        weight.append("You have a relatively high BMI, but average amount of body fat. Focus on reducing fat"
+        weightstate.append("You have a relatively high BMI, but average amount of body fat. Focus on reducing fat"
               "through cardio and strength training.")
     elif bfp_status == "average" and status == "obese":
-        weight.append("You have a relatively high BMI, but average amount of body fat. Increase your"
+        weightstate.append("You have a relatively high BMI, but average amount of body fat. Increase your"
               "activity and adjust your diet to lower health risks.")
     elif bfp_status == "overweight" and status == "underweight":
-        weight.append("You have a high body fat percentage, but low BMI. Focus on muscle building"
+        weightstate.append("You have a high body fat percentage, but low BMI. Focus on muscle building"
               "and fat reduction for a better body composition.")
     elif bfp_status == "overweight" and status == "normal":
-        weight.append("You have a high fat percentage, but healthy BMI. You're what some "
+        weightstate.append("You have a high fat percentage, but healthy BMI. You're what some "
               "would consider 'skinny fat'. Improve your diet and add resistance training"
               "to reduce your body fat percentages.")
     elif bfp_status == "overweight" and status == "overweight":
-        weight.append("You have a high fat percentage and a high BMI. Work on fat reduction through exercise"
+        weightstate.append("You have a high fat percentage and a high BMI. Work on fat reduction through exercise"
               "and nutrition.")
     elif bfp_status == "overweight" and status == "obese":
-        weight.append("You have a very high fat percentage and BMI. You're at a high health risk."
+        weightstate.append("You have a very high fat percentage and BMI. You're at a high health risk."
               "Implement lifestyle changes and consult a professional.")
 
 # weight_info()

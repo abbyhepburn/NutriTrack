@@ -27,7 +27,7 @@ def log_weight():
         neck = request.form["neck"]
         hip = request.form["hip"]
         nutritrack.weight_info(weight, height, sex, waist, neck, hip)
-    return render_template("advice.html", advice_type="weight", advice = nutritrack.weight)
+    return render_template("advice.html", advice_type="weight", advice = nutritrack.weightstate)
 
 
 # Nutrition tracking page
