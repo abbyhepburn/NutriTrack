@@ -21,8 +21,8 @@
         {% if advice_type == "weight" %}
             <h2>Weight Advice</h2>
             <ul>
-                {% for w in weightstate %}
-                    <li>{{ w.date }}: {{ w.value }} kg</li>
+                {% for w in advice %}
+                    <li>{{ w }}</li>
                 {% endfor %}
             </ul>
         {% endif %}
