@@ -1,46 +1,154 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>NutriTrack - Dashboard</title>
-  <link rel="stylesheet" href="styles.css" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>NutriTrack - Dashboard</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
 </head>
 <body>
-  <header>
-    <h1>NutriTrack</h1>
-    <nav>
-      <ul>
-        <li><a href="index.html">Home</a></li>
+    <header>
+        <h1>NutriTrack</h1>
+        <nav>
+            <ul>
+                <li><a href="{{ url_for('index') }}">Home</a></li>
+                <!-- Advice removed from nav -->
+            </ul>
+        </nav>
+    </header>
 
-      </ul>
-    </nav>
-  </header>
+    <section class="dashboard">
+        <h2>Dashboard</h2>
 
-  <section class="dashboard-section">
-    <h2>Log Weight</h2>
-    <form method="post" action="/log_weight">
-      <input type="number" step="0.1" name="weight" placeholder="Enter weight (kg)" required />
-      <button type="submit">Log Weight</button>
-    </form>
-  </section>
+        <!-- Weight Section -->
+        <section class="weight-section">
+            <h2>Weight</h2>
+            <form action = "{{ url_for('log_weight') }}" method="post">
+                <div class="form-row">
+                    <label for="weight">Enter Weight (lbs):</label>
+                    <input
+                        type="number"
+                        step="0.1"
+                        name="weight"
+                        id="weight"
+                        placeholder="Weight in pounds"
+                        required
+                    />
+                </div>
 
-  <section class="dashboard-section">
-    <h2>Log Food</h2>
-    <form method="post" action="/log_food">
-      <input type="number" step="1" name="calories" placeholder="Calories" required />
-      <input type="number" step="0.1" name="protein" placeholder="Protein (g)" required />
-      <input type="number" step="0.1" name="carbs" placeholder="Carbs (g)" required />
-      <input type="number" step="0.1" name="fat" placeholder="Fat (g)" required />
-      <input type="number" step="0.1" name="sugars" placeholder="Added Sugar (g)" required />
-      <input type="number" step="0.1" name="sodium" placeholder="Sodium (g)" required />
-      <input type="number" step="1" name="serving" placeholder="Fruit/Veg Servings" required />
-      <button type="submit">Log Food</button>
-    </form>
-  </section>
+                <!-- Body Fat Calculator Section -->
+                <h3 style="margin-top: 30px;">Body Fat Calculator</h3>
+                <hr style="border: 1px solid #4CAF50; margin-bottom: 20px;" />
 
-  <footer>
-    <p>Nutrition Tracker App - 2025</p>
-  </footer>
+                <div class="form-row">
+                    <label for="sex">Sex:</label>
+                    <select name="sex" id="sex" required>
+                        <option value="">Select Sex</option>
+                        <option value="male">Male</option>
+                        <option value="female">Female</option>
+                    </select>
+                </div>
+
+                <div class="form-row">
+                    <label for="waist">Waist Measurement (inches):</label>
+                    <input
+                        type="number"
+                        step="0.1"
+                        name="waist"
+                        id="waist"
+                        placeholder="Waist in inches"
+                        required
+                    />
+                </div>
+
+                <div class="form-row">
+                    <label for="neck">Neck Measurement (inches):</label>
+                    <input
+                        type="number"
+                        step="0.1"
+                        name="neck"
+                        id="neck"
+                        placeholder="Neck in inches"
+                        required
+                    />
+                </div>
+
+                <div class="form-row">
+                    <label for="height">Height (inches):</label>
+                    <input
+                        type="number"
+                        step="0.1"
+                        name="height"
+                        id="height"
+                        placeholder="Height in inches"
+                        required
+                    />
+                </div>
+
+                <button type="submit" style="margin-top: 20px;">Enter</button>
+            </form>
+        </section>
+
+        <!-- Nutrition Section -->
+        <section class="nutrition-section">
+            <h2>Nutrition</h2>
+            <form action="{{ url_for('log_nutrition') }}" method="post">
+                <input
+                    type="number"
+                    step="1"
+                    name="calories"
+                    placeholder="Calories"
+                    required
+                />
+                <input
+                    type="number"
+                    step="0.1"
+                    name="protein"
+                    placeholder="Protein (g)"
+                    required
+                />
+                <input
+                    type="number"
+                    step="0.1"
+                    name="carbs"
+                    placeholder="Carbs (g)"
+                    required
+                />
+                <input
+                    type="number"
+                    step="0.1"
+                    name="fat"
+                    placeholder="Fat (g)"
+                    required
+                />
+                <input
+                    type="number"
+                    step="0.1"
+                    name="sugars"
+                    placeholder="Added Sugar (g)"
+                    required
+                />
+                <input
+                    type="number"
+                    step="0.1"
+                    name="sodium"
+                    placeholder="Sodium (g)"
+                    required
+                />
+                <input
+                    type="number"
+                    step="1"
+                    name="serving"
+                    placeholder="Fruit/Veg Servings"
+                    required
+                />
+                <button type="submit">Enter</button>
+            </form>
+        </section>
+    </section>
+
+    <footer>
+        <p>Nutrition Tracker App - 2025</p>
+    </footer>
 </body>
 </html>

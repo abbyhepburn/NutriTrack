@@ -1,59 +1,67 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>NutriTrack - Advice</title>
-  <link rel="stylesheet" href="styles.css" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NutriTrack - Advice</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
 </head>
 <body>
-  <header>
-    <h1>NutriTrack</h1>
-    <nav>
-      <ul>
-        <li><a href="index.html">Home</a></li>
-        <li><a href="dashboard.html">Dashboard</a></li>
-      </ul>
-    </nav>
-  </header>
+    <header>
+        <h1>NutriTrack</h1>
+        <nav>
+            <ul>
+                <li><a href="{{ url_for('index') }}">Home</a></li>
+                <li><a href="{{ url_for('dashboard') }}">Dashboard</a></li>
+            </ul>
+        </nav>
+    </header>
 
-  <section class="advice-section">
-    {% if advice_type == "weight" %}
-    <h2>Weight Advice</h2>
-    <p>Weights logged:</p>
-    <ul>
-      {% for weight in weights %}
-      <li>{{ weight.date }}: {{ weight.value }} kg</li>
-      {% endfor %}
-    </ul>
-    <p>Keep it up! Remember to maintain a balanced diet and regular exercise.</p>
+    <section class="advice-section">
+        {% if advice_type == "weight" %}
+            <h2>Weight Advice</h2>
+            <ul>
+                {% for w in weights %}
+                    <li>{{ w.date }}: {{ w.value }} kg</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
 
-    {% elif advice_type == "nutrition" %}
-    <h2>Nutrition Advice</h2>
-    <ul>
-      {% for item in advice %}
-      <li>{{ item }}</li>
-      {% endfor %}
-    </ul>
-    {% endif %}
+        {% if body_fat %}
+            <h2>Body Fat Estimate</h2>
+            <p>Your estimated body fat percentage: <strong>{{ body_fat }}%</strong></p>
+        {% endif %}
 
-    {% if food_entries %}
-    <h2>Food Entries</h2>
-    <ul>
-      {% for food in food_entries %}
-      <li>
-        {{ food.date }}: {{ food.calories }} cal, {{ food.protein }}g P,
-        {{ food.carbs }}g C, {{ food.fat }}g F,
-        {{ food.sugars }}g Sugars, {{ food.sodium }}g Sodium,
-        {{ food.serving }} servings fruit/veg
-      </li>
-      {% endfor %}
-    </ul>
-    {% endif %}
-  </section>
+        {% if advice_type == "nutrition" %}
+            <h2>Nutrition Advice</h2>
+            <ul>
+                {% for item in advice %}
+                    <li>{{ item }}</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
 
-  <footer>
-    <p>Nutrition Tracker App - 2025</p>
-  </footer>
+        {% if food_entries %}
+            <h2>Food Entries</h2>
+            <ul>
+                {% for food in food_entries %}
+                    <li>
+                        {{ food.date }}:
+                        {{ food.calories }} cal,
+                        {{ food.protein }}g protein,
+                        {{ food.carbs }}g carbs,
+                        {{ food.fat }}g fat,
+                        {{ food.sugars }}g sugar,
+                        {{ food.sodium }}g sodium,
+                        {{ food.serving }} fruit/veg servings
+                    </li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+    </section>
+
+    <footer>
+        <p>Nutrition Tracker App - 2025</p>
+    </footer>
 </body>
 </html>
