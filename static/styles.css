@@ -98,6 +98,11 @@ form button:hover {
     background-color: #45a049;
 }
 
+.selector {
+    background-color: #4b8526;
+    border: solid 10px #4b8526;
+    border-radius: 20px;
+}
 @media (min-width: 768px) {
     form label, form input, form select, form button {
         display: inline-block;
@@ -154,3 +159,4 @@ footer p {
     font-size: 1rem;
     box-sizing: border-box;
 }
+
