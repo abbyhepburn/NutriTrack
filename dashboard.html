@@ -23,7 +23,7 @@
         <!-- Weight Section -->
         <section class="weight-section">
             <h2>Weight</h2>
-            <form method="post" action="/log_weight">
+            <form action = "{{ url_for('log_weight') }}" method="post">
                 <div class="form-row">
                     <label for="weight">Enter Weight (lbs):</label>
                     <input
@@ -92,7 +92,7 @@
         <!-- Nutrition Section -->
         <section class="nutrition-section">
             <h2>Nutrition</h2>
-            <form method="post" action="/log_food">
+            <form action="{{ url_for('log_nutrition') }}" method="post">
                 <input
                     type="number"
                     step="1"
