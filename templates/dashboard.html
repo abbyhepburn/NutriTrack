@@ -1,76 +1,46 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NutriTrack - Dashboard</title>
-    <link rel="stylesheet" href="../static/styles.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>NutriTrack - Dashboard</title>
+  <link rel="stylesheet" href="../static/styles.css" />
 </head>
 <body>
-    <header>
-        <h1>NutriTrack</h1>
-        <nav>
-            <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="goals.html">My Goals</a></li>
-            </ul>
-        </nav>
-    </header>
+  <header>
+    <h1>NutriTrack</h1>
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
 
-    <section class="dashboard">
-        <h2>📊 Weight & Nutrition Dashboard</h2>
+      </ul>
+    </nav>
+  </header>
 
-        <!-- Log Weight -->
-        <div class="form-section">
-            <h3>Log Weight</h3>
-            <form method="post" action="/log_weight">
-                <input type="number" step="0.1" name="weight" placeholder="Enter weight (kg)" required>
-                <button type="submit">Log Weight</button>
-            </form>
-        </div>
+  <section class="dashboard-section">
+    <h2>Log Weight</h2>
+    <form method="post" action="/log_weight">
+      <input type="number" step="0.1" name="weight" placeholder="Enter weight (kg)" required />
+      <button type="submit">Log Weight</button>
+    </form>
+  </section>
 
-        <!-- Log Food -->
-        <div class="form-section">
-            <h3>Log Food</h3>
-            <form method="post" action="/log_food">
-                <input type="number" step="1" name="calories" placeholder="Calories" required>
-                <input type="number" step="0.1" name="protein" placeholder="Protein (g)" required>
-                <input type="number" step="0.1" name="carbs" placeholder="Carbs (g)" required>
-                <input type="number" step="0.1" name="fat" placeholder="Fat (g)" required>
-                <input type="number" step="0.1" name="sugars" placeholder="Added Sugar (g)" required>
-                <input type="number" step="0.1" name="sodium" placeholder="Sodium (g)" required>
-                <input type="number" step="1" name="serving" placeholder="Fruit/Veg Servings" required>
-                <button type="submit">Log Food</button>
-            </form>
-        </div>
+  <section class="dashboard-section">
+    <h2>Log Food</h2>
+    <form method="post" action="/log_food">
+      <input type="number" step="1" name="calories" placeholder="Calories" required />
+      <input type="number" step="0.1" name="protein" placeholder="Protein (g)" required />
+      <input type="number" step="0.1" name="carbs" placeholder="Carbs (g)" required />
+      <input type="number" step="0.1" name="fat" placeholder="Fat (g)" required />
+      <input type="number" step="0.1" name="sugars" placeholder="Added Sugar (g)" required />
+      <input type="number" step="0.1" name="sodium" placeholder="Sodium (g)" required />
+      <input type="number" step="1" name="serving" placeholder="Fruit/Veg Servings" required />
+      <button type="submit">Log Food</button>
+    </form>
+  </section>
 
-        <!-- Summary Section -->
-        <div class="summary-section">
-            <h3>Weight History</h3>
-            <ul>
-                {% for d, w in weights %}
-                    <li>{{ d }}: {{ w }} kg</li>
-                {% endfor %}
-            </ul>
-
-            <h3>Food Log</h3>
-            <ul>
-                {% for d, f, cal, pro, carb, fat in foods %}
-                    <li>{{ d }}: {{ f }} - {{ cal }} cal, {{ pro }}g P, {{ carb }}g C, {{ fat }}g F</li>
-                {% endfor %}
-            </ul>
-
-            <h3>Advice</h3>
-            <ul>
-                {% for msg in advice %}
-                    <li>{{ msg }}</li>
-                {% endfor %}
-            </ul>
-        </div>
-    </section>
-
-    <footer>
-        <p>Nutrition Tracker App - 2025</p>
-    </footer>
+  <footer>
+    <p>Nutrition Tracker App - 2025</p>
+  </footer>
 </body>
 </html>
