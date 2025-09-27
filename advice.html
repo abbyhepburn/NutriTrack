@@ -21,7 +21,7 @@
         {% if advice_type == "weight" %}
             <h2>Weight Advice</h2>
             <ul>
-                {% for w in weights %}
+                {% for w in weightss %}
                     <li>{{ w.date }}: {{ w.value }} kg</li>
                 {% endfor %}
             </ul>
