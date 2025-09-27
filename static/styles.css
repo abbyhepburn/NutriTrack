@@ -154,3 +154,24 @@ footer p {
     font-size: 1rem;
     box-sizing: border-box;
 }
+
+.dashboard-image-button {
+   width: 200px;
+   height: auto;
+   display: block;
+   margin: auto;
+   margin-top: 20px;
+   border-radius: 8px;
+   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+   cursor: pointer;
+   transition: transform 0.2s;
+}
+
+
+.dashboard-image-button:hover {
+   transform: scale(1.05);
+}
+
+p {
+    text-align: center;
+}
