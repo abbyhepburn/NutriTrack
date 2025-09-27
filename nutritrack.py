@@ -14,14 +14,9 @@ def convert_height(inches):
     return height
 
 
-def calculate_bmi(weight, height):
-    bmi = convert_weight(weight) / convert_height(height)
-    return bmi
-
-
-def bmi_calculations():
-    user_bmi = calculate_bmi(current_weight, current_height)
+def bmi_calculations(weight, height):
     print()
+    user_bmi = convert_weight(weight) / convert_height(height)
     print("Reminder: Your BMI is just a rough guideline, not a full picture of your "
           "health. Things like muscle, bone structure, and lifestyle aren’t included in this number, "
           "so don’t worry if your score isn’t exactly where you hoped. It doesn’t define you.")
@@ -48,12 +43,7 @@ def bmi_calculations():
     return status
 
 
-def body_fat_calculations():
-    sex = input("Please enter your gender (male or female):")
-    waist = float(input("Please enter your waist measurement in inches: "))
-    neck = float(input("Please enter your neck measurement in inches: "))
-    if sex == "female":
-        hip = float(input("Please enter your hip measurement in inches: "))
+def body_fat_calculations(sex, waist, neck, hip):
 
     if sex == "male":
         bfp = 86.010 * (math.log((waist - neck), 10)) - 70.041 * (math.log(current_height, 10)) + 36.76
@@ -86,9 +76,9 @@ def body_fat_calculations():
     return bfp, bfp_status
 
 
-def weight_info():
-    bfp, bfp_status = body_fat_calculations()
-    status = bmi_calculations()
+def weight_info(weight, height, sex, waist, neck, hip):
+    bfp, bfp_status = body_fat_calculations(sex, waist, neck, hip)
+    status = bmi_calculations(weight, height)
 
     if status == "underweight" and bfp_status == "essential":
         print("You have very low fat and a very low weight, and because of this you"
