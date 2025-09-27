@@ -20,12 +20,12 @@ def dashboard():
 @app.route("/log_weight", methods=["GET", "POST"])
 def log_weight():
     if request.method == "POST" and "weight" in request.form:
-        weight = request.form["weight"]
-        height = request.form["height"]
+        weight = float(request.form["weight"])
+        height = float(request.form["height"])
         sex = request.form["sex"]
-        waist = request.form["waist"]
-        neck = request.form["neck"]
-        hip = request.form["hip"]
+        waist = float(request.form["waist"])
+        neck = float(request.form["neck"])
+        hip = float(request.form["hip"])
         nutritrack.weight_info(weight, height, sex, waist, neck, hip)
     return render_template("advice.html", advice_type="weight", advice = nutritrack.weightstate)
 
@@ -34,13 +34,13 @@ def log_weight():
 @app.route("/log_nutrition", methods=["GET", "POST"])
 def log_nutrition():
     if request.method == "POST" and "calories" in request.form:
-        cal = request.form["calories"]
-        pro = request.form["protein"]
-        carb = request.form["carbs"]
-        fat = request.form["fat"]
-        sugars = request.form["sugars"]
-        sodium = request.form["sodium"]
-        serving = request.form["serving"]
+        cal = float(request.form["calories"])
+        pro = float(request.form["protein"])
+        carb = float(request.form["carbs"])
+        fat = float(request.form["fat"])
+        sugars = float(request.form["sugars"])
+        sodium = float(request.form["sodium"])
+        serving = float(request.form["serving"])
 
         nutritrack.add_food(cal, pro, carb, fat, sugars, sodium, serving)
         nutritrack.check_nut()
