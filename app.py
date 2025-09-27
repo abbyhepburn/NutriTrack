@@ -1,5 +1,5 @@
 from flask import Flask, render_template, request
-import nutrition
+import nutritrack
 
 app = Flask(__name__)
 
@@ -29,15 +29,15 @@ def home():
             serving = request.form["serving"]
 
             # log nutrition
-            nutrition.add_food(cal, pro, carb, fat, sugar, sodium, serving)
+            nutritrack.add_food(cal, pro, carb, fat, sugar, sodium, serving)
 
             # check nutrition and generate advice
-            nutrition.check_nut()
+            nutritrack.check_nut()
 
     return render_template("index.html",
                            weights=weights,
-                           foods=nutrition.foods,
-                           advice=nutrition.advice)
+                           foods=nutritrack.foods,
+                           advice=nutritrack.advice)
 
 
 if __name__ == "__main__":
