@@ -196,4 +196,4 @@ def check_nut():
         advice.append("Great! You’re getting enough fruits and vegetables.")
     return advice
 #add_food(1000,155,60,35,2,3,4)
-#print(check_nut())
+#print(check_nut())2

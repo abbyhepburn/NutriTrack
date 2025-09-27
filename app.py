@@ -15,7 +15,7 @@ def dashboard():
     return render_template("dashboard.html")
 
 
-# Weight tracking page
+# Weight tracking page1
 
 @app.route("/log_weight", methods=["GET", "POST"])
 def log_weight():
