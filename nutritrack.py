@@ -1,9 +1,5 @@
 import math
 
-current_weight = float(input("Please enter your current weight (pounds): "))
-current_height = float(input("Please enter your current height (inches): "))
-
-
 def convert_weight(pounds):
     weight = pounds / 2.205
     return weight
@@ -43,10 +39,10 @@ def bmi_calculations(weight, height):
     return status
 
 
-def body_fat_calculations(sex, waist, neck, hip):
+def body_fat_calculations(height, sex, waist, neck, hip):
 
     if sex == "male":
-        bfp = 86.010 * (math.log((waist - neck), 10)) - 70.041 * (math.log(current_height, 10)) + 36.76
+        bfp = 86.010 * (math.log((waist - neck), 10)) - 70.041 * (math.log(height, 10)) + 36.76
         bfp = round(bfp, 1)
         if 2 <= bfp < 5:
             bfp_status = "essential"
@@ -59,7 +55,7 @@ def body_fat_calculations(sex, waist, neck, hip):
         else:
             bfp_status = "overweight"
     else:  # female
-        bfp = 163.205 * (math.log((waist + hip - neck), 10)) - 97.684 * (math.log(current_height, 10)) - 78.38
+        bfp = 163.205 * (math.log((waist + hip - neck), 10)) - 97.684 * (math.log(height, 10)) - 78.38
         bfp = round(bfp, 1)
         if 10 <= bfp < 14:
             bfp_status = "essential"
