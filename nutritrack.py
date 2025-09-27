@@ -140,7 +140,7 @@ def weight_info(weight, height, sex, waist, neck, hip):
         weightstate.append("You have a very high fat percentage and BMI. You're at a high health risk."
               "Implement lifestyle changes and consult a professional.")
 
-# weight_info()
+# weight_info()m
 
 foods = []
 def add_food(calories, protein, carbs, fat, sugar, sodium, serving):
