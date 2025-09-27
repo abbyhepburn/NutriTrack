@@ -16,12 +16,14 @@ def dashboard():
 
 
 # Weight tracking page
+
 @app.route("/log_weight", methods=["GET", "POST"])
 def log_weight():
     if request.method == "POST" and "weight" in request.form:
         weight = request.form["weight"]
         weights.append(float(weight))
     return render_template("advice.html", advice_type="weight", weights=weights)
+
 
 # Nutrition tracking page
 @app.route("/log_nutrition", methods=["GET", "POST"])
