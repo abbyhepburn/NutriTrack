@@ -54,7 +54,7 @@ def body_fat_calculations(height, sex, waist, neck, hip):
             bfp_status = "average"
         else:
             bfp_status = "overweight"
-    else:  # female
+    else:  # females
         bfp = 163.205 * (math.log((waist + hip - neck), 10)) - 97.684 * (math.log(height, 10)) - 78.38
         bfp = round(bfp, 1)
         if 10 <= bfp < 14:

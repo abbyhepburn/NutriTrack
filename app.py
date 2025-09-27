@@ -30,7 +30,7 @@ def log_weight():
     return render_template("advice.html", advice_type="weight", advice = nutritrack.weightstate)
 
 
-# Nutrition tracking page
+# Nutrition tracking pages
 @app.route("/log_nutrition", methods=["GET", "POST"])
 def log_nutrition():
     if request.method == "POST" and "calories" in request.form:
