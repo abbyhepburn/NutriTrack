@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name ="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nutrition Tracker - My Goals</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>NutriTrack</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="dashboard.html">Dashboard</a></li>
+                <li><a href="goals.html">My Goals</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="goals">
+        <h2>Set Your Weight Goals</h2>
+        <form id="goals-form">
+            <label for ="current-weight">Current Weight (kg):</label>
+            <input type="number" id="current-weight" name ="current-weight" required>
+            <input type="number" id="target-weight" name ="target-weight" required>
+
+            <button type="submit">Save Goals</button>
+        </form>
+
+        <div class="goal-tips">
+            <h3>Weight Loss Tips:</h3>
+            <ul>
+                <li>Start with small, achievable goals.</li>
+                <li>Track your progress regularly.</li>
+                <li>Incorporate regular physical activity into your routine.</li>
+            </ul>
+        </div>
+    </section>
+
+    <footer>
+        <p>Nutrition Tracker App - 2025</p>
+    </footer>
+</body>
+</html>
