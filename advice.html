@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>NutriTrack - Advice</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header>
+    <h1>NutriTrack</h1>
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="dashboard.html">Dashboard</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section class="advice-section">
+    {% if advice_type == "weight" %}
+    <h2>Weight Advice</h2>
+    <p>Weights logged:</p>
+    <ul>
+      {% for weight in weights %}
+      <li>{{ weight.date }}: {{ weight.value }} kg</li>
+      {% endfor %}
+    </ul>
+    <p>Keep it up! Remember to maintain a balanced diet and regular exercise.</p>
+
+    {% elif advice_type == "nutrition" %}
+    <h2>Nutrition Advice</h2>
+    <ul>
+      {% for item in advice %}
+      <li>{{ item }}</li>
+      {% endfor %}
+    </ul>
+    {% endif %}
+
+    {% if food_entries %}
+    <h2>Food Entries</h2>
+    <ul>
+      {% for food in food_entries %}
+      <li>
+        {{ food.date }}: {{ food.calories }} cal, {{ food.protein }}g P,
+        {{ food.carbs }}g C, {{ food.fat }}g F,
+        {{ food.sugars }}g Sugars, {{ food.sodium }}g Sodium,
+        {{ food.serving }} servings fruit/veg
+      </li>
+      {% endfor %}
+    </ul>
+    {% endif %}
+  </section>
+
+  <footer>
+    <p>Nutrition Tracker App - 2025</p>
+  </footer>
+</body>
+</html>
