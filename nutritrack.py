@@ -53,5 +53,5 @@ def check_nut():
     else:
         advice.append("Great! You’re getting enough fruits and vegetables.")
     return advice
-add_food(1000,155,60,35,2,3,4)
-print(check_nut())
+#add_food(1000,155,60,35,2,3,4)
+#print(check_nut())
