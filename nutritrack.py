@@ -69,11 +69,11 @@ def body_fat_calculations(height, sex, waist, neck, hip):
             bfp_status = "overweight"
 
     print(f"Your body fat percentage is {bfp}% ({bfp_status}).")
-    return bfp, bfp_status
+    return bfp_status
 
 
 def weight_info(weight, height, sex, waist, neck, hip):
-    bfp, bfp_status = body_fat_calculations(sex, waist, neck, hip)
+    bfp_status = body_fat_calculations(sex, waist, neck, hip)
     status = bmi_calculations(weight, height)
 
     if status == "underweight" and bfp_status == "essential":
