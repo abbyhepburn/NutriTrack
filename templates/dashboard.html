@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>NutriTrack - Dashboard</title>
-<link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <link rel="stylesheet" href="../static/styles.css">
 </head>
 <body>
     <header>
@@ -60,6 +60,17 @@
                         required
                     />
                 </div>
+                <div class="form-row">
+                   <label for="hip">Hip Measurement (inches):</label>
+                   <input
+                       type="number"
+                       step="0.1"
+                       name="hip"
+                       id="hip"
+                       placeholder="Hip in inches"
+                       required
+                   />
+                </div>
 
                 <div class="form-row">
                     <label for="neck">Neck Measurement (inches):</label>
@@ -113,6 +124,7 @@
                     name="carbs"
                     placeholder="Carbs (g)"
                     required
+
                 />
                 <input
                     type="number"

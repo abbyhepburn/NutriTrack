@@ -16,6 +16,7 @@ def dashboard():
 
 
 # Weight tracking page
+
 @app.route("/log_weight", methods=["GET", "POST"])
 def log_weight():
     if request.method == "POST" and "weight" in request.form:
@@ -26,7 +27,8 @@ def log_weight():
         neck = request.form["neck"]
         hip = request.form["hip"]
         nutritrack.weight_info(weight, height, sex, waist, neck, hip)
-    return render_template("advice.html", advice_type="weight", weights=weights)
+    return render_template("advice.html", advice_type="weight", advice = nutritrack.weight)
+
 
 # Nutrition tracking page
 @app.route("/log_nutrition", methods=["GET", "POST"])
