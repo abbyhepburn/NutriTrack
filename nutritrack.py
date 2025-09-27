@@ -1,9 +1,5 @@
 import math
 
-current_weight = float(input("Please enter your current weight (pounds): "))
-current_height = float(input("Please enter your current height (inches): "))
-
-
 def convert_weight(pounds):
     weight = pounds / 2.205
     return weight
@@ -14,14 +10,9 @@ def convert_height(inches):
     return height
 
 
-def calculate_bmi(weight, height):
-    bmi = convert_weight(weight) / convert_height(height)
-    return bmi
-
-
-def bmi_calculations():
-    user_bmi = calculate_bmi(current_weight, current_height)
+def bmi_calculations(weight, height):
     print()
+    user_bmi = convert_weight(weight) / convert_height(height)
     print("Reminder: Your BMI is just a rough guideline, not a full picture of your "
           "health. Things like muscle, bone structure, and lifestyle aren’t included in this number, "
           "so don’t worry if your score isn’t exactly where you hoped. It doesn’t define you.")
@@ -48,15 +39,10 @@ def bmi_calculations():
     return status
 
 
-def body_fat_calculations():
-    sex = input("Please enter your gender (male or female):")
-    waist = float(input("Please enter your waist measurement in inches: "))
-    neck = float(input("Please enter your neck measurement in inches: "))
-    if sex == "female":
-        hip = float(input("Please enter your hip measurement in inches: "))
+def body_fat_calculations(height, sex, waist, neck, hip):
 
     if sex == "male":
-        bfp = 86.010 * (math.log((waist - neck), 10)) - 70.041 * (math.log(current_height, 10)) + 36.76
+        bfp = 86.010 * (math.log((waist - neck), 10)) - 70.041 * (math.log(height, 10)) + 36.76
         bfp = round(bfp, 1)
         if 2 <= bfp < 5:
             bfp_status = "essential"
@@ -69,7 +55,7 @@ def body_fat_calculations():
         else:
             bfp_status = "overweight"
     else:  # female
-        bfp = 163.205 * (math.log((waist + hip - neck), 10)) - 97.684 * (math.log(current_height, 10)) - 78.38
+        bfp = 163.205 * (math.log((waist + hip - neck), 10)) - 97.684 * (math.log(height, 10)) - 78.38
         bfp = round(bfp, 1)
         if 10 <= bfp < 14:
             bfp_status = "essential"
@@ -86,9 +72,9 @@ def body_fat_calculations():
     return bfp, bfp_status
 
 
-def weight_info():
-    bfp, bfp_status = body_fat_calculations()
-    status = bmi_calculations()
+def weight_info(weight, height, sex, waist, neck, hip):
+    bfp, bfp_status = body_fat_calculations(sex, waist, neck, hip)
+    status = bmi_calculations(weight, height)
 
     if status == "underweight" and bfp_status == "essential":
         print("You have very low fat and a very low weight, and because of this you"
@@ -156,8 +142,7 @@ def weight_info():
         print("You have a very high fat percentage and BMI. You're at a high health risk."
               "Implement lifestyle changes and consult a professional.")
 
-
-weight_info()
+# weight_info()
 
 foods = []
 def add_food(calories, protein, carbs, fat, sugar, sodium, serving):

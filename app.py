@@ -21,7 +21,12 @@ def dashboard():
 def log_weight():
     if request.method == "POST" and "weight" in request.form:
         weight = request.form["weight"]
-        weights.append(float(weight))
+        height = request.form["height"]
+        sex = request.form["sex"]
+        waist = request.form["waist"]
+        neck = request.form["neck"]
+        hip = request.form["hip"]
+        nutritrack.weight_info(weight, height, sex, waist, neck, hip)
     return render_template("advice.html", advice_type="weight", weights=weights)
 
 
@@ -43,3 +48,4 @@ def log_nutrition():
 
 if __name__ == "__main__":
     app.run(debug=True)
+#new
