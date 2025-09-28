@@ -97,6 +97,23 @@ form button {
 form button:hover {
     background-color: #45a049;
 }
+.dashboard-image-button {
+   display: block;         /* makes it act like a block */
+   margin: 20px auto;
+   width: 200px; /* adjust size as needed */
+   height: auto;
+   margin-top: 20px;
+   border-radius: 8px;
+   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+   cursor: pointer;
+   transition: transform 0.2s;
+}
+
+
+.dashboard-image-button:hover {
+   transform: scale(1.05);
+}
+
 
 @media (min-width: 768px) {
     form label, form input, form select, form button {
@@ -153,4 +170,8 @@ footer p {
     border-radius: 4px;
     font-size: 1rem;
     box-sizing: border-box;
+}
+p {
+text-align: center;
+font-weight:bold;
 }
